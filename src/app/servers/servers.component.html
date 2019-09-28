@@ -1,5 +1,9 @@
 <!-- Property binding: Here what I am saying to Angular is, bind the property disabled to the result of property/variable 
 allowNewServer. I.e. if allowNewServer = false then disabled = true & if allowNewServer = true then disabled = false. -->
 <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+<!-- Example of string interpolation: Use it when you want to dynamically output a text/string -->
+<p>{{ allowNewServer }}</p>
+<!-- The same example with property binding: binding the html propery innerText of p element to the TypeScript property/variable allowNewServer-->
+<p [innerText]="allowNewServer"></p>
 <app-server></app-server>
 <app-server></app-server>
