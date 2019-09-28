@@ -1,2 +1,5 @@
+<!-- Property binding: Here what I am saying to Angular is, bind the property disabled to the result of property/variable 
+allowNewServer. I.e. if allowNewServer = false then disabled = true & if allowNewServer = true then disabled = false. -->
+<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
 <app-server></app-server>
 <app-server></app-server>
