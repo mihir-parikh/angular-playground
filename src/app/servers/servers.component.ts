@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
+  serverCreationStatus = 'No server is created.';
+  serverName = '';
 
   constructor() { 
     // ES6 anonymous function syntax. Almost equivalent to function() {}
@@ -17,6 +19,14 @@ export class ServersComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onServerCreation() {
+    this.serverCreationStatus = 'A server is created.';
+  }
+
+  onUpdateOfServerName(event: Event) {
+    this.serverName = event.target.value;
   }
 
 }
