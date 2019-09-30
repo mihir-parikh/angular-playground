@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'No server is created.';
-  serverName = '';
+  serverName = 'Test server';
+  serverCreated = false;
 
   constructor() { 
     // ES6 anonymous function syntax. Almost equivalent to function() {}
@@ -22,11 +23,13 @@ export class ServersComponent implements OnInit {
   }
 
   onServerCreation() {
-    this.serverCreationStatus = 'A server is created.';
+    this.serverCreated = true;
+    this.serverCreationStatus = 'A server is created with name: ' + this.serverName;
   }
 
   onUpdateOfServerName(event: Event) {
-    this.serverName = event.target.value;
+    // Typecasting in Typescript, to inform that the event.target is of type HTMLInputElement
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 
 }

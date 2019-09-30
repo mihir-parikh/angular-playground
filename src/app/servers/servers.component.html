@@ -1,7 +1,15 @@
 <label>Server name: </label>
 <!-- Passing the event data to function -->
-<input type="text" class="form-control" (input)="onUpdateOfServerName($event)" />
-<p>{{ serverName }}</p>
+<!-- <input type="text" class="form-control" (input)="onUpdateOfServerName($event)" /> -->
+
+<!--
+    An example of two way data binding: serverName property is bound with input element & event. 
+    - I.e. When there is trigger of input event (e.g. keystroke), serverName property will be updated in TypeScript
+    - & when there is an update in serverName property in TypeScript, this input element will be updates. 
+    I.e. Reacting to events in both directions.
+-->
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<!-- <p>{{ serverName }}</p> -->
 <!-- Property binding: Here what I am saying to Angular is, bind the property disabled to the result of property/variable 
 allowNewServer. I.e. if allowNewServer = false then disabled = true & if allowNewServer = true then disabled = false. -->
 <!-- (): Event binding in Angular. E.g. (click) = onclick -->
@@ -10,6 +18,9 @@ allowNewServer. I.e. if allowNewServer = false then disabled = true & if allowNe
 <p>{{ allowNewServer }}</p>
 <!-- The same example with property binding: binding the html propery innerText of p element to the TypeScript property/variable allowNewServer-->
 <p [innerText]="allowNewServer"></p>
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<!-- ngIf: A structural directive (instruction), if serverCreated == true then display the element, if serverCreated == false then don't display
+the element. -->
+<p *ngIf="serverCreated">Server is created with name {{ serverName }}</p>
 <app-server></app-server>
 <app-server></app-server>
