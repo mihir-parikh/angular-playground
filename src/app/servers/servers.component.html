@@ -21,6 +21,8 @@ allowNewServer. I.e. if allowNewServer = false then disabled = true & if allowNe
 <!-- <p>{{ serverCreationStatus }}</p> -->
 <!-- ngIf: A structural directive (instruction), if serverCreated == true then display the element, if serverCreated == false then don't display
 the element. -->
-<p *ngIf="serverCreated">Server is created with name {{ serverName }}</p>
+<p *ngIf="serverCreated; else noServer">Server is created with name {{ serverName }}</p>
+<!-- A marker -->
+<ng-template #noServer><p>No server was created</p></ng-template>
 <app-server></app-server>
 <app-server></app-server>
