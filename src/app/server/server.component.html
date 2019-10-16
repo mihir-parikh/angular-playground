@@ -1,1 +1,8 @@
-<h4>{{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}.</h4>
+<!-- []: Property binding -->
+<!-- 
+    Attach the class online if serverStatus is 'online'
+    ngClass: key = class, value = condition whether this class should be attached or not
+ -->
+<p [ngStyle]="{'background-color': getColor()}" [ngClass]="{online: serverStatus === 'online'}">
+    {{ 'Server' }} with ID {{ serverId }} is {{ getServerStatus() }}.
+</p>

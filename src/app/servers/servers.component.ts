@@ -11,6 +11,7 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No server is created.';
   serverName = 'Test server';
   serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
 
   constructor() { 
     // ES6 anonymous function syntax. Almost equivalent to function() {}
@@ -25,6 +26,7 @@ export class ServersComponent implements OnInit {
   onServerCreation() {
     this.serverCreated = true;
     this.serverCreationStatus = 'A server is created with name: ' + this.serverName;
+    this.servers.push(this.serverName);
   }
 
   onUpdateOfServerName(event: Event) {
